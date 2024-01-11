@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(150, 148, 148);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    width: 500px;
+    height: 250px;
+    border: 2px solid black;
+    background-color: white;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Oculta el contenido que se extiende más allá del contenedor */
+}
+
+.cintas-wrapper {
+    display: flex;
+    animation: moverCintas 2s linear infinite;
+    border: 2px solid black;
+}
+
+.cinta {
+    width: 50px;
+    height: 50px;
+    margin: 0 5px;
+}
+
+.cinta1 {
+    background-color: grey;
+}
+
+.cinta2 {
+    background-color: rgb(165, 161, 161);
+}
+
+.machine {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 1.5rem;
+}
+
+.machine1 {
+    top: 150px;
+    background-color: red;
+}
+
+/* .machine1::after {
+    content: '✔️';
+} */
+
+.machine2 {
+    top: 150px;
+    left: 150px;
+    background-color: rgba(255, 166, 2, .6);
+}
+
+.caja {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: brown;
+    top: 110px; /* Ajusta la posición inicial según sea necesario */
+    left: 0px; /* Ajusta la posición inicial según sea necesario */
+    animation: moverCaja 2s linear infinite; /* Agrega la animación directamente aquí */
+    border: 2px solid black;
+}
+
+.caja::after {
+    content: '卍';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.money {
+    position: absolute;
+    bottom: 0;
+    right: 0px;
+    padding: 4px;
+    background-color: greenyellow;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.upgrade-box {
+    position: absolute;
+    bottom: 0;
+    right: 180px;
+    padding: 4px;
+    background-color: burlywood;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+.new-machine {
+    position: absolute;
+    bottom: 0;
+    left: 0px;
+    padding: 4px;
+    background-color: lightgreen;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+@keyframes moverCaja {
+    0% {
+        left: 0; /* Inicio de la animación, posición inicial de la caja */
+    }
+    100% {
+        left: 50%; /* Final de la animación, posición final de la caja */
+    }
+}
+
+@keyframes moverCintas {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(120px);
+    }
+}
