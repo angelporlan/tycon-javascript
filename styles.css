@@ -21,7 +21,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden; /* Oculta el contenido que se extiende más allá del contenedor */
+    overflow: hidden;
 }
 
 .cintas-wrapper {
@@ -76,18 +76,19 @@ body {
     width: 30px;
     height: 30px;
     background-color: brown;
+    background: url(caja.png);
     top: 110px; /* Ajusta la posición inicial según sea necesario */
     left: 0px; /* Ajusta la posición inicial según sea necesario */
     animation: moverCaja 2s linear infinite; /* Agrega la animación directamente aquí */
     border: 2px solid black;
 }
 
-.caja::after {
+/* .caja::after {
     content: '卍';
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
 .money {
     position: absolute;
