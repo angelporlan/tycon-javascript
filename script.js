@@ -2,11 +2,18 @@
 let dinero = 0;
 let precioCaja = 1;
 const preciosMejoraCaja = [];
+const preciosAñadirMaquina = [];
 let precioActual = 100;
+let precioActualMaquina = 1000;
 
 for (let i = 0; i < 100; i++) {
   preciosMejoraCaja.push(Math.round(precioActual));
   precioActual *= 1.20;
+}
+
+for (let j = 0; j < 100; j++) {
+    preciosAñadirMaquina.push(Math.round(precioActualMaquina));
+    precioActualMaquina *= 1.80;
 }
 
 document.querySelector('.upgrade-box').addEventListener('click', function(){
@@ -16,9 +23,38 @@ document.querySelector('.upgrade-box').addEventListener('click', function(){
         document.querySelector('#money').textContent = dineroActual - precioCompra;
         preciosMejoraCaja.splice(0, 1);
         document.querySelector('#price1').textContent = preciosMejoraCaja[0];
-        precioCaja = precioCaja + (precioCaja * 0.2)
+        precioCaja = precioCaja + (precioCaja * 0.2);
+        document.querySelector('#price3').textContent = precioCaja.toFixed(2);
     }
 });
+
+
+document.querySelector('.new-machine').addEventListener('click', function () {
+    const precioCompra = parseInt(document.querySelector('#price2').textContent);
+    const dineroActual = parseInt(document.querySelector('#money').textContent);
+
+    if (dineroActual >= precioCompra) {
+        document.querySelector('#money').textContent = dineroActual - precioCompra;
+        // Eliminar el primer elemento del array (simulando la compra)
+        preciosAñadirMaquina.splice(0, 1);
+
+        document.querySelector('#next-machine').textContent = parseInt(document.querySelector('#next-machine').textContent) + 1;
+
+        document.querySelector('#price2').textContent = preciosAñadirMaquina[0];
+        
+    }
+    console.log(document.querySelector('#next-machine').textContent)
+    if (document.querySelector('#next-machine').textContent === '3') {
+        document.querySelector('.machine3').style.visibility = 'visible';
+        document.querySelector('.machine2').style.setProperty('--state-machine', '"✔️"');
+        document.querySelector('.machine2').style.backgroundColor = 'rgba(255, 166, 2, 1)';
+
+        setInterval(() => {
+            crearCaja();
+        }, 400);
+    }
+});
+
 
 function crearCaja() {
     const contenedor = document.querySelector('.container');

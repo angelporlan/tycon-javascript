@@ -13,7 +13,7 @@ body {
 }
 
 .container {
-    width: 500px;
+    width:  500px;
     height: 250px;
     border: 2px solid black;
     background-color: white;
@@ -61,14 +61,34 @@ body {
     background-color: red;
 }
 
-/* .machine1::after {
+.machine::after {
+    position: absolute;
+    font-size: .7rem;
+    top: 0px;
+    right: 0;
+}
+
+.machine1::after {
     content: '✔️';
-} */
+}
+
+.machine2::after, .machine3::after {
+    content: var(--state-machine);
+}
 
 .machine2 {
+    --state-machine: "❌";
+    top: 55px;
+    left: 230px;
+    background-color: rgba(255, 166, 2, .6);
+}
+
+.machine3 {
+    visibility: hidden;
+    --state-machine: "❌";
     top: 150px;
     left: 150px;
-    background-color: rgba(255, 166, 2, .6);
+    background-color: rgba(2, 255, 129, 0.6);
 }
 
 .caja {
@@ -83,12 +103,7 @@ body {
     border: 2px solid black;
 }
 
-/* .caja::after {
-    content: '卍';
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
+
 
 .money {
     position: absolute;
@@ -113,6 +128,15 @@ body {
     left: 0px;
     padding: 4px;
     background-color: lightgreen;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.boxprice {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 4px;
+    background-color: greenyellow;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
